@@ -51,5 +51,19 @@ class TableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.delete) {
+            do{
+                let realm = try Realm()
+                try realm.write {
+                    realm.delete(self.todoItem[indexPath.row])
+                }
+                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+            }catch{
+            }
+            tableView.reloadData()
+        }
+    }
 }
 
