@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  InputViewController.swift
 //  SampleRealmSwift
 //
 //  Created by 菅原勝也 on 2017/09/25.
@@ -8,18 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InputViewController: UIViewController {
 
+    @IBOutlet weak var titleTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        titleTextField.frame.size.height = 30
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    //Buttonが押された時の処理
+    @IBAction func addButtonTapped(sender: AnyObject) {
+        
     }
 
-
 }
-
